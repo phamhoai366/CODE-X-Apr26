@@ -1,0 +1,79 @@
+<?php
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+
+// Product data for lines 8-14
+$products = [
+    // Line 8: SA, SB, SC, SD
+    ['row_id' => 8, 'product_id' => 'SA',  'san_luong' => 150, 'ngay_tao' => '2026-04-15', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 8, 'product_id' => 'SB', 'san_luong' => 180, 'ngay_tao' => '2026-04-16', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 8, 'product_id' => 'SC', 'san_luong' => 165, 'ngay_tao' => '2026-04-17', 'chu_ki' => 30, 'ke_hoach' => 'Planning'],
+    ['row_id' => 8, 'product_id' => 'SD', 'san_luong' => 200, 'ngay_tao' => '2026-04-18', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+
+    // Line 9: SA, SB, SC, SD
+    ['row_id' => 9, 'product_id' => 'SA', 'san_luong' => 160, 'ngay_tao' => '2026-04-19', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 9, 'product_id' => 'SB', 'san_luong' => 185, 'ngay_tao' => '2026-04-20', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 9, 'product_id' => 'SC', 'san_luong' => 170, 'ngay_tao' => '2026-04-21', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 9, 'product_id' => 'SD', 'san_luong' => 210, 'ngay_tao' => '2026-04-22', 'chu_ki' => 30, 'ke_hoach' => 'Review'],
+
+    // Line 10: SA, SB, SC, SD
+    ['row_id' => 10, 'product_id' => 'SA', 'san_luong' => 155, 'ngay_tao' => '2026-04-23', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 10, 'product_id' => 'SB', 'san_luong' => 190, 'ngay_tao' => '2026-04-24', 'chu_ki' => 30, 'ke_hoach' => 'Planning'],
+    ['row_id' => 10, 'product_id' => 'SC', 'san_luong' => 175, 'ngay_tao' => '2026-04-25', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 10, 'product_id' => 'SD', 'san_luong' => 205, 'ngay_tao' => '2026-04-26', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+
+    // Line 11: SA, SB, SC, SD
+    ['row_id' => 11, 'product_id' => 'SA', 'san_luong' => 170, 'ngay_tao' => '2026-04-27', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 11, 'product_id' => 'SB', 'san_luong' => 195, 'ngay_tao' => '2026-04-28', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 11, 'product_id' => 'SC', 'san_luong' => 180, 'ngay_tao' => '2026-04-29', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 11, 'product_id' => 'SD', 'san_luong' => 220, 'ngay_tao' => '2026-04-30', 'chu_ki' => 30, 'ke_hoach' => 'Review'],
+
+    // Line 12: SA, SB, SC, SD, SE
+    ['row_id' => 12, 'product_id' => 'SA', 'san_luong' => 165, 'ngay_tao' => '2026-05-01', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 12, 'product_id' => 'SB', 'san_luong' => 188, 'ngay_tao' => '2026-05-02', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 12, 'product_id' => 'SC', 'san_luong' => 172, 'ngay_tao' => '2026-05-03', 'chu_ki' => 30, 'ke_hoach' => 'Planning'],
+    ['row_id' => 12, 'product_id' => 'SD', 'san_luong' => 215, 'ngay_tao' => '2026-05-04', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 12, 'product_id' => 'SE', 'san_luong' => 215, 'ngay_tao' => '2026-05-04', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+
+    // Line 13: SA, SB, SC, SD, SE
+    ['row_id' => 13, 'product_id' => 'SA', 'san_luong' => 175, 'ngay_tao' => '2026-05-01', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 13, 'product_id' => 'SB', 'san_luong' => 192, 'ngay_tao' => '2026-05-02', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 13, 'product_id' => 'SC', 'san_luong' => 185, 'ngay_tao' => '2026-05-03', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 13, 'product_id' => 'SD', 'san_luong' => 225, 'ngay_tao' => '2026-05-04', 'chu_ki' => 30, 'ke_hoach' => 'Review'],
+
+    // Line 14: SA, SB, SC, SD
+    ['row_id' => 14, 'product_id' => 'SA', 'san_luong' => 168, 'ngay_tao' => '2026-05-01', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 14, 'product_id' => 'SB', 'san_luong' => 198, 'ngay_tao' => '2026-05-02', 'chu_ki' => 30, 'ke_hoach' => 'Planning'],
+    ['row_id' => 14, 'product_id' => 'SC', 'san_luong' => 182, 'ngay_tao' => '2026-05-03', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+    ['row_id' => 14, 'product_id' => 'SD', 'san_luong' => 230, 'ngay_tao' => '2026-05-04', 'chu_ki' => 30, 'ke_hoach' => 'Active'],
+];
+
+// Calculate performance metrics
+$total_quantity = array_sum(array_column($products, 'san_luong'));
+$active_count = count(array_filter($products, fn($p) => $p['ke_hoach'] === 'Active'));
+$planning_count = count(array_filter($products, fn($p) => $p['ke_hoach'] === 'Planning'));
+$review_count = count(array_filter($products, fn($p) => $p['ke_hoach'] === 'Review'));
+$total_products = count($products);
+
+$response = [
+    'success' => true,
+    'timestamp' => date('Y-m-d H:i:s'),
+    'data' => $products,
+    'performance' => [
+        'total_quantity' => $total_quantity,
+        'total_products' => $total_products,
+        'active' => $active_count,
+        'planning' => $planning_count,
+        'review' => $review_count,
+        'percentages' => [
+            'active' => round(($active_count / $total_products) * 100, 2),
+            'planning' => round(($planning_count / $total_products) * 100, 2),
+            'review' => round(($review_count / $total_products) * 100, 2)
+        ]
+    ]
+];
+
+echo json_encode($response, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+?>
