@@ -1,1 +1,2 @@
-Run app_chatbot.py
+## Run app_chatbot.py
+streamlit run .\app_chatbot.py
